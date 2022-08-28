@@ -11,8 +11,18 @@ class MyReceiver : BroadcastReceiver() {
             Intent.ACTION_BATTERY_LOW -> {
                 Toast.makeText(context, "Battery low", Toast.LENGTH_LONG).show()
             }
+            Intent.ACTION_AIRPLANE_MODE_CHANGED -> {
+                val turnedOn = intent.getBooleanExtra("state", false)
+                Toast.makeText(context, "Airplane mod chagned $turnedOn", Toast.LENGTH_LONG).show()
+            }
+            ACTION_CLICKED -> {
+                Toast.makeText(context, "Clicked", Toast.LENGTH_LONG).show()
+            }
         }
     }
 
+    companion object{
+        const val ACTION_CLICKED = "clicked"
+    }
 
 }
