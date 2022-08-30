@@ -8,6 +8,11 @@ import android.widget.Toast
 class MyReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
         when(intent?.action){
+            "loaded" -> {
+                val percent = intent.getIntExtra("percent", 0)
+                Toast.makeText(context, "Percents $percent", Toast.LENGTH_LONG).show()
+
+            }
             Intent.ACTION_BATTERY_LOW -> {
                 Toast.makeText(context, "Battery low", Toast.LENGTH_LONG).show()
             }
